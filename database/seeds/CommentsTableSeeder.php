@@ -14,6 +14,7 @@ class CommentsTableSeeder extends Seeder
         DB::table('comments')->insert([
             'content' => 'Lorem comment',
             'user_id' => 2,
+            'post_id' => 1,
         ]);
     }
 }

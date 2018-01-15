@@ -14,6 +14,7 @@ class PostsTableSeeder extends Seeder
         DB::table('posts')->insert([
             'title' =>  'Lorem title',
             'description' => 'Lorem description',
+            'content' => 'Lorem content',
             'category_id' => 1,
         ]);
     }
