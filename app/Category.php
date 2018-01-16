@@ -13,8 +13,8 @@ class Category extends Model
     /** 
      * Get the posts for the category
      */
-    public function comments()
+    public function posts()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Post');
     }
 }
