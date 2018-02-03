@@ -1,0 +1,44 @@
+#content {
+    margin-top: 50px;
+}
+
+.section-title {
+    font-size: 22px;
+}
+
+#categories-list {
+    list-style-type: none;
+    padding-left: 0px!important;
+    text-decoration: underline;
+}
+
+#categories-list a:link {
+    color: #444;
+    font-weight: bold;
+}
+
+#categories-list a:hover {
+    text-decoration: none;
+}
+
+.posts-title a:link {
+    color: #444;
+}
+
+.posts-title a:hover {
+    text-decoration: none;
+}
+
+.posts-description {
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px!important;
+}
+
+.posts {
+    margin-bottom: 30px;
+}
+
+.posts-content {
+    margin-top: 5px;
+}

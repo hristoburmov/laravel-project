@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class PostsTableSeeder extends Seeder
 {
@@ -13,9 +14,11 @@ class PostsTableSeeder extends Seeder
     {
         DB::table('posts')->insert([
             'title' =>  'Lorem title',
-            'description' => 'Lorem description',
             'content' => 'Lorem content',
             'category_id' => 1,
+            'user_id' => 1,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ]);
     }
 }
