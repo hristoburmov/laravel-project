@@ -18,4 +18,8 @@ class Post extends Model
         return $this->hasMany('App\Comment');
     }
     
+    public function getCommentsCountAttribute() {
+        return $this->comments->count();
+    } 
+    
 }

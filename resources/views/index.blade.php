@@ -14,7 +14,7 @@
             <hr class="hr">
             <p class="posts-description">
                 Category: <a style="text-decoration: none; color: grey" href="/category/{{$post->cId}}">{{ $post->category_name }}</a> | 
-                <a style="text-decoration: none; color: grey;" href="/post/{{$post->id}}#commentSection">View Comments</a>
+                <a style="text-decoration: none; color: grey;" href="/post/{{$post->id}}#commentSection">View Comments({{ $post->comments_count }})</a>
             </p>
             <p class="posts-content">
             {{$post->content}}
@@ -22,9 +22,10 @@
             <p class="posts-description">
             Posted by {{ $post->name }}, on {{ \Carbon\Carbon::parse($post->created_at)->format('d/m/Y')}}. Last edited on {{ \Carbon\Carbon::parse($post->updated_at)->format('d/m/Y')}}
             </p>
-        </article>
+        </article>  
         </div>
         @endforeach
+        {{ $posts->links() }}
     </div>
     
     
