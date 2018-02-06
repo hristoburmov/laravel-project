@@ -12,3 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('index');
+
+Route::get('/about', function() {
+    return view('about');
+})->name('about');

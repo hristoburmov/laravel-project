@@ -1,5 +1,7 @@
 #content {
     margin-top: 50px;
+    overflow: auto;
+    margin-bottom: 50px;
 }
 
 .section-title {
@@ -41,4 +43,13 @@
 
 .posts-content {
     margin-top: 5px;
+}
+
+#footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    clear: both;
 }

@@ -25,7 +25,6 @@
 <body>
     
     <div id="nav">
-
        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
           <a class="navbar-brand" href="#">SNP</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,12 +37,17 @@
               <a class="nav-item nav-link {{ (\Request::route()->getName() == 'contact') ? 'active' : '' }}" href="{{ asset('/contact') }}">Contact</a>
             </div>
           </div>
-
        </nav> 
     </div>
        
     <div id="content" class="container bg-light">
          @yield('content')
+    </div>
+    
+    <div id="footer" class="bg-light">
+        <footer>
+        &copy; 2018 SNP by Ivan Georgiev, Lazar Pendov, Hristo Burmov 
+        </footer>
     </div>
     
     <!-- Scripts -->
