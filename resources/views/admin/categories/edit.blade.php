@@ -15,7 +15,7 @@
         </div>
     @endif
     
-    <form method="post" action="{{route('admin.categories.update')}}">
+    <form method="post" action="{{route('admin.categories.update',$category->id)}}">
          {{ csrf_field() }}
          
         <label class="control-label" for="category_name"><strong>Category name:</strong></label>

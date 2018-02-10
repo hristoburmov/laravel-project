@@ -42,7 +42,7 @@ class CategoryController extends Controller
                 ->with('category',$category);
     }
     
-    public function update(Request $request) {
+    public function update($id, Request $request) {
         $this->validate($request, [
          'category_name' => 'required|min:4|max:100',
         ]);

@@ -29,6 +29,6 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'], function() { // TODO: Add
     Route::get('/categories/create', 'CategoryController@create')->name('admin.categories.create');
     Route::post('categories/create', 'CategoryController@store')->name('admin.categories.store');
     Route::get('categories/{id}/edit', 'CategoryController@edit')->name('admin.categories.edit');
-    Route::put('/categories/update', 'CategoryController@update')->name('admin.categories.update');
+    Route::put('/categories/update/{id}', 'CategoryController@update')->name('admin.categories.update');
     Route::delete('/categories/destroy/{id}', 'CategoryController@destroy')->name('admin.categories.destroy');
 });
