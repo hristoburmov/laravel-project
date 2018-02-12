@@ -17,6 +17,9 @@ Route::get('/about', function() {
     return view('about');
 })->name('about');
 
+// Contact
+Route::get('/contact', 'ContactController@showForm')->name('contact');
+Route::post('/contact', 'ContactController@sendForm')->name('contact');
 
 // Admin
 Route::group(['namespace'=>'Admin','prefix'=>'admin'], function() { // TODO: Add Middlware to chek access
