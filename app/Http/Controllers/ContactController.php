@@ -33,6 +33,6 @@ class ContactController extends Controller
             $message->setBody($data['bodyMessage']);
         });
 
-        return Redirect::back()->with('success', 'Message has been sent!');
+        return redirect()->route('contact')->with('success', 'Message has been sent!');
     }
 }

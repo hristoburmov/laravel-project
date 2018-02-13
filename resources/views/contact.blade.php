@@ -4,23 +4,7 @@
 
 @section('content')
 
-@if($errors->any())
-    <div class="alert alert-danger mt-3">
-        <h4>Some problems occurred:</h4>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
-
-@if(Session::has('success'))
-    <div class="alert alert-success mt-3">
-        <h4>Success</h4>
-        <p>{{ Session::get('success') }}</p>
-    </div>
-@endif
+@include('shared.message')
 
 <div class="row">
     <div class="col-md-8">

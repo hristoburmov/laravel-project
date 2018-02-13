@@ -34,4 +34,12 @@ Route::group(['namespace'=>'Admin','prefix'=>'admin'], function() { // TODO: Add
     Route::get('categories/{id}/edit', 'CategoryController@edit')->name('admin.categories.edit');
     Route::put('/categories/update/{id}', 'CategoryController@update')->name('admin.categories.update');
     Route::delete('/categories/destroy/{id}', 'CategoryController@destroy')->name('admin.categories.destroy');
+
+    // Comments
+    Route::get('/comments', 'CommentController@index')->name('admin.comments');
+    Route::get('/comments/create', 'CommentController@create')->name('admin.comments.create');
+    Route::post('/comments/create', 'CommentController@store')->name('admin.comments.store');
+    Route::get('/comments/edit/{id}', 'CommentController@edit')->name('admin.comments.edit');
+    Route::put('/comments/update/{id}', 'CommentController@update')->name('admin.comments.update');
+    Route::delete('/comments/destroy/{id}', 'CommentController@destroy')->name('admin.comments.destroy');
 });
