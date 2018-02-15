@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Create Category Page')
+@section('title', 'Edit Category Page')
 
 @section('content')
 

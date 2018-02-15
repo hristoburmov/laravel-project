@@ -21,6 +21,11 @@ Route::get('/about', function() {
 Route::get('/contact', 'ContactController@showForm')->name('contact');
 Route::post('/contact', 'ContactController@sendForm')->name('contact');
 
+// Posts
+Route::get('/post/{id}', 'PostController@show')->name('posts.show');
+Route::get('/category/{category_id}', 'PostController@getByCategory')->name('posts.getByCategory');
+
+
 // Admin
 Route::group(['namespace'=>'Admin','prefix'=>'admin'], function() { // TODO: Add Middlware to chek access
     Route::get('/', function() {
