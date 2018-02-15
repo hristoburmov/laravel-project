@@ -21,7 +21,7 @@
 
 <hr class="hr">
 
-<h4 style="margin-top: 80px;"> Comments: </h4>
+<h4 id="commentSection" style="margin-top: 80px;"> Comments: </h4>
 
 <hr class="hr">
 
@@ -35,7 +35,7 @@
 
 @endforeach
 
-<div id="commentSection">
+<div>
     <!-- Comment Form -->
 </div>
 

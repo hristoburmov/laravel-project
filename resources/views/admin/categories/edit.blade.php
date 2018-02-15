@@ -4,17 +4,9 @@
 
 @section('content')
 
-<div>
-     @if (count($errors) > 0)
-        <div class="alert alert-danger">
-        <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{ $error }}</li>
-        @endforeach
-        </ul>
-        </div>
-    @endif
-    
+@include('shared.message')
+
+<div>   
     <form method="post" action="{{route('admin.categories.update',$category->id)}}">
          {{ csrf_field() }}
          

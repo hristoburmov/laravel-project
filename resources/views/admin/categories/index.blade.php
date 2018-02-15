@@ -4,6 +4,8 @@
 
 @section('content')
 
+@include('shared.message')
+
 <div>
     <a href="{{ route('admin.categories.create') }}"><button class="btn btn-primary">Create</button></a>
     

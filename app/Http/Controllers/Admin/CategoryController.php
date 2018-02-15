@@ -32,7 +32,7 @@ class CategoryController extends Controller
         
         Category::create(['category_name'=>$category_name]);
         
-        return redirect()->route('admin.categories');
+        return redirect()->route('admin.categories')->with('success', 'Category has been created.');
     }
     
     public function edit($id) {
@@ -52,7 +52,7 @@ class CategoryController extends Controller
         
         $category->save();
          
-        return redirect()->route('admin.categories');
+        return redirect()->route('admin.categories')->with('success', 'Category has been updated.');
     }
     
     public function destroy($id) {
@@ -60,6 +60,6 @@ class CategoryController extends Controller
         
         $category->delete();
         
-        return redirect()->route('admin.categories');
+        return redirect()->route('admin.categories')->with('success', 'Category has been deleted.');
     }
 }
