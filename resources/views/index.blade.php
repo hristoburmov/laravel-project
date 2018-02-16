@@ -10,11 +10,11 @@
         @foreach($posts as $post)
         <div class="posts">
         <article>
-        <h4 class="h4 posts-title"><a href="/post/{{$post->id}}">{{$post->title}}</a></h4>
+        <h4 class="h4 posts-title"><a href="{{ route('posts.show', $post->id) }}">{{$post->title}}</a></h4>
             <hr class="hr">
             <p class="posts-description">
-                Category: <a style="text-decoration: none; color: grey" href="/category/{{$post->cId}}">{{ $post->category_name }}</a> | 
-                <a style="text-decoration: none; color: grey;" href="/post/{{$post->id}}#commentSection">View Comments({{ $post->comments_count }})</a>
+                Category: <a style="text-decoration: none; color: grey" href="{{ route('posts.getByCategory', $post->cId) }}">{{ $post->category_name }}</a> | 
+                <a style="text-decoration: none; color: grey;" href="{{ route('posts.show', $post->id) }}#commentSection">View Comments({{ $post->comments_count }})</a>
             </p>
             <p class="posts-content">
             {{$post->content}}
@@ -37,7 +37,7 @@
         
         <ul id="categories-list">
         @foreach($categories as $category)   
-            <li><a href="/category/{{$category->id}}">{{$category->category_name}}</a></li> 
+            <li><a href="{{ route('posts.getByCategory', $category->id) }}">{{$category->category_name}}</a></li> 
         @endforeach
         </ul>
      
