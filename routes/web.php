@@ -23,6 +23,7 @@ Route::post('/contact', 'ContactController@sendForm')->name('contact');
 
 // Posts
 Route::get('/post/{id}', 'PostController@show')->name('posts.show');
+Route::post('/post/{id}', 'PostController@comment')->name('posts.comment');
 Route::get('/category/{category_id}', 'PostController@getByCategory')->name('posts.getByCategory');
 
 

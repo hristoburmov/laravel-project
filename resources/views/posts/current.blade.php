@@ -1,8 +1,10 @@
 @extends('layouts.main')
 
-@section('title', 'About Page')
+@section('title', $post->title)
 
 @section('content')
+
+@include('shared.message')
 
 <article>
 
@@ -17,11 +19,11 @@
     Posted by on {{ \Carbon\Carbon::parse($post->created_at)->format('d/m/Y')}}. Last edited on {{ \Carbon\Carbon::parse($post->updated_at)->format('d/m/Y')}}
 </p>
 
- </article>  
+ </article>
 
 <hr class="hr">
 
-<h4 id="commentSection" style="margin-top: 80px;"> Comments: </h4>
+<h4 id="commentSection"> Comments: </h4>
 
 <hr class="hr">
 
@@ -35,8 +37,15 @@
 
 @endforeach
 
-<div>
-    <!-- Comment Form -->
-</div>
+<hr class="hr">
+
+<h4 id="commentForm">Write a comment:</h4>
+<form action="{{ url('post', $post->id) }}" method="POST" class="mb-3">
+    {{ csrf_field() }}
+    <div class="form-group">
+        <textarea id="comment-content" class="form-control" rows="5" name="comment" placeholder="Comment..."></textarea>
+    </div>
+    <input type="submit" value="Add Comment" class="btn btn-primary">
+</form>
 
 @endsection

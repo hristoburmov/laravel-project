@@ -28,6 +28,20 @@ class PostController extends Controller
                 ->with('post',$post)
                 ->with('comments', $comments);
    }
+
+    public function comment($id, Request $request) {
+        $this->validate($request, [
+            'comment' => 'required'
+        ]);
+
+        Comment::create([
+            'post_id' => $id,
+            'user_id' => 1,
+            'content' => $request->comment
+        ]);
+
+        return redirect()->back()->with('success', 'Comment has been added.');
+    }
    
    public function getByCategory($category_id) {
        $posts = Post::withCount('comments')
