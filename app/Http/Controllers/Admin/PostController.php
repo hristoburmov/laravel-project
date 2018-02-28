@@ -9,6 +9,7 @@ use App\Models\Post;
 use App\Models\Comment;
 use App\Models\User;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -35,14 +36,13 @@ class PostController extends Controller
     public function store(Request $request) {
         $this->validate($request, [
             'category' => 'required',
-            'user' => 'required',
             'title' => 'required|min:4|max:100',
             'content' => 'required'
         ]);
 
         Post::create([
            'category_id' => $request->category,
-           'user_id' => $request->user,
+           'user_id' => Auth::user()->id,
            'title' => $request->title,
            'content' => $request->content
         ]);
@@ -64,14 +64,13 @@ class PostController extends Controller
     public function update($id, Request $request) {
         $this->validate($request, [
             'category' => 'required',
-            'user' => 'required',
             'title' => 'required|min:4|max:100',
             'content' => 'required'
         ]);
 
         $post = Post::find($id);
         $post->category_id = $request->category;
-        $post->user_id = $request->user;
+        $post->user_id = Auth::user()->id;
         $post->title = $request->title;
         $post->content = $request->content;
         $post->save();

@@ -14,25 +14,13 @@
         </div>
         <form action="{{ route('admin.posts.update', $post->id) }}" method="post">
             {{ csrf_field() }}
-            <div class="row">
-                <div class="col-md-6 form-group">
-                    <label for="post-category">Category:</label>
-                    <select id="post-category" class="form-control" name="category">
-                        @foreach($categories as $category)
-                            <option @if($post->category_id == $category->id) selected @endif value="{{ $category->id }}">{{ $category->category_name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-6 form-group">
-                    <label for="post-user">User:</label>
-                    <select id="post-user" class="form-control" name="user">
-                        @foreach($users as $user)
-                            <option @if($post->user_id == $user->id) selected @endif value="{{ $user->id }}">{{ $user->name }}</option>
-                        @endforeach
-                    </select>
-                </div>
-            </div>
             <div class="form-group">
+                <label for="post-category">Category:</label>
+                <select id="post-category" class="form-control" name="category">
+                    @foreach($categories as $category)
+                        <option @if($post->category_id == $category->id) selected @endif value="{{ $category->id }}">{{ $category->category_name }}</option>
+                    @endforeach
+                </select>        
                 <label for="post-title">Title:</label>
                 <input class="form-control" type="text" name="title" value="{{ $post->title }}">
                 <label for="post-content">Content:</label>
