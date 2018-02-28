@@ -14,7 +14,7 @@ class LoginController extends Controller
     {
     	$this->validate($req,[
     		'email' => 'email|max:191|required',
-    		'password' => 'min:6|max:32|required'
+    		'password' => 'min:4|max:32|required'
     	]);
 
     	$user = User::where('email', $req->email)->first();

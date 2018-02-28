@@ -40,6 +40,9 @@
               <a class="nav-item nav-link {{ (\Request::route()->getName() == 'register-user') ? 'active' : '' }}" href="{{ asset('/register') }}">Registration</a>
                 @endguest
                 @auth
+                 @if( Auth::user()->role == 1 )
+                <a class="nav-item nav-link {{ (\Request::route()->getName() == 'admincp') ? 'active' : '' }}" href="{{ asset('/admin') }}">Admin Panel</a>
+                 @endif
               <a class="nav-item nav-link {{ (\Request::route()->getName() == 'logout') ? 'active' : '' }}" href="{{ asset('/logout') }}">Logout ( {{ Auth::user()->name }} )</a>
                 @endauth
             </div>
