@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use View;
-use App\Category;
-use App\Post;
-use App\Comment;
-use App\User;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\Comment;
+use App\Models\User;
 use App\Http\Controllers\Controller;
 
 class CategoryController extends Controller

@@ -37,10 +37,10 @@
               <a class="nav-item nav-link {{ (\Request::route()->getName() == 'contact') ? 'active' : '' }}" href="{{ asset('/contact') }}">Contact</a>
                 @guest
               <a class="nav-item nav-link {{ (\Request::route()->getName() == 'login') ? 'active' : '' }}" href="{{ asset('/login') }}">Login</a>
-              <a class="nav-item nav-link {{ (\Request::route()->getName() == 'login') ? 'active' : '' }}" href="{{ asset('/register') }}">Registration</a>
+              <a class="nav-item nav-link {{ (\Request::route()->getName() == 'register-user') ? 'active' : '' }}" href="{{ asset('/register') }}">Registration</a>
                 @endguest
                 @auth
-              <a class="nav-item nav-link {{ (\Request::route()->getName() == 'login') ? 'active' : '' }}" href="{{ asset('/logout') }}">Logout ( {{ Auth::user()->name }} )</a>
+              <a class="nav-item nav-link {{ (\Request::route()->getName() == 'logout') ? 'active' : '' }}" href="{{ asset('/logout') }}">Logout ( {{ Auth::user()->name }} )</a>
                 @endauth
             </div>
           </div>

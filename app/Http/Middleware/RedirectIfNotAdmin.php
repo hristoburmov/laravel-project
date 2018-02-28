@@ -16,7 +16,7 @@ class RedirectIfNotAdmin
      */
     public function handle($request, Closure $next)
     {
-        if(Auth::user()->isAdmin === 0)
+        if(Auth::user()->role === 0)
         {
             return redirect('404');
         }
