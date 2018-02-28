@@ -20,7 +20,9 @@ class CreatePostsTable extends Migration
             $table->unsignedInteger('category_id');
             $table->unsignedInteger('user_id');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('category_id')->references('id')->on('categories');
+            $table->unique(['user_id', 'category_id']);
         });
     }
 

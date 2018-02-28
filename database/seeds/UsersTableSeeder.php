@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
+
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -14,15 +15,15 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' =>  'admin',
             'email' => 'admin@admin.admin',
-            'role' => 2,
-            'password' => bcrypt('admin'),
+            'role' => 1, // admin
+            'password' => Hash::make('admin' . 'admin@admin.admin'),
         ]);
         
         DB::table('users')->insert([
             'name' => 'test',
-            'email' => 'test' . '@test.test',
-            'role' => 1,
-            'password' => bcrypt('test'),
+            'email' => 'test@test.test',
+            'role' => 0, // normal user
+            'password' => Hash::make('test' . 'test@test.test'),
         ]);
     }
 }
