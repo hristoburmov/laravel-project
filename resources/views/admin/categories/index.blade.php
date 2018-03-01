@@ -6,11 +6,13 @@
 
 @include('shared.message')
 
+@include('admin.admincp-nav')
+
 <div>
-    <a href="{{ route('admin.categories.create') }}"><button class="btn btn-primary">Create</button></a>
-    
-    <h3>Categories:</h3>
-    
+    <div class="mb-3 mt-3 row">
+        <div class="col-sm-8"><h2>Categories</h2></div>
+        <div class="col-sm-4"><a href="{{ route('admin.categories.create') }}"><button class="btn btn-primary float-right">New category</button></a></div>
+    </div>
     <table class="table table-bordered">
         <thead>
         <tr>

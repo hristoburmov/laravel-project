@@ -13,17 +13,17 @@
             {{ csrf_field() }}
             <div class="form-group">
                 <label for="contact-email">Email:</label>
-                <input type="text" id="contact-email" class="form-control" name="email">
+                <input type="text" id="contact-email" class="form-control" name="email" value="{{ old('email') }}">
             </div>
             <div class="form-group">
                 <label for="contact-subject">Subject:</label>
-                <input type="text" id="contact-subject" class="form-control" name="subject">
+                <input type="text" id="contact-subject" class="form-control" name="subject" value="{{ old('subject') }}">
             </div>
             <div class="form-group">
                 <label for="contact-message">Message:</label>
-                <textarea id="contact-message" class="form-control" rows="5" name="message"></textarea>
+                <textarea id="contact-message" class="form-control" rows="5" name="message">{{ old('message') }}</textarea>
             </div>
-            <input type="submit" value="Send" class="btn btn-primary">
+            <input type="submit" value="Send message" class="btn btn-primary">
         </form>
     </div>
 </div>

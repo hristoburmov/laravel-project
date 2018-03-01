@@ -6,6 +6,8 @@
 
 @include('shared.message')
 
+@include('admin.admincp-nav')
+
 <div class="row">
     <div class="col-md-12">
         <div class="mb-3 mt-3 row">

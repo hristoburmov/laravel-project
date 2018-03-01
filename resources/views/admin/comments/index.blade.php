@@ -6,6 +6,8 @@
 
 @include('shared.message')
 
+@include('admin.admincp-nav')
+
 <div>
     <div class="mb-3 mt-3 row">
         <div class="col-sm-8"><h2>Comments</h2></div>
