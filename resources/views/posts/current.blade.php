@@ -16,7 +16,7 @@
     {{$post->content}}
 </p>
 <p class="posts-description">
-    Posted by on {{ \Carbon\Carbon::parse($post->created_at)->format('d/m/Y')}}. Last edited on {{ \Carbon\Carbon::parse($post->updated_at)->format('d/m/Y')}}
+    Posted by {{ $post->uName }} on {{ \Carbon\Carbon::parse($post->created_at)->format('d/m/Y')}}. Last edited on {{ \Carbon\Carbon::parse($post->updated_at)->format('d/m/Y')}}
 </p>
 
  </article>
