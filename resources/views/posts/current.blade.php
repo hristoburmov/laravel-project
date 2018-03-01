@@ -31,7 +31,9 @@
 @foreach($comments as $comment)
 
 <div class="row" style="margin-top: 20px;" class="comments">
-    <div class="col-md-3"><h5>Posted by <strong>{{$comment->uName}}</strong> on {{ \Carbon\Carbon::parse($comment->created_at)->format('d/m/Y')}}</h5></div>
+    <div class="col-md-3"><h5>Posted by <strong>{{$comment->uName}}</strong> on {{ \Carbon\Carbon::parse($comment->created_at)->format('d/m/Y')}}</h5>
+        @if(Auth::check() && Auth::user()->id == $comment->user_id)<a href="{{ route('comments.edit', $comment->id) }}">Edit</a>@endif
+    </div>
     <div style="font-size: 18px;" class="col-md-9"><p> {{$comment->content}}</p></div>
 </div>
 
@@ -39,13 +41,6 @@
 
 <hr class="hr">
 
-<h4 id="commentForm">Write a comment:</h4>
-<form action="{{ url('post', $post->id) }}" method="POST" class="mb-3">
-    {{ csrf_field() }}
-    <div class="form-group">
-        <textarea id="comment-content" class="form-control" rows="5" name="comment" placeholder="Comment..."></textarea>
-    </div>
-    <input type="submit" value="Add Comment" class="btn btn-primary">
-</form>
+@include('comments.form')
 
 @endsection

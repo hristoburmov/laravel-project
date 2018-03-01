@@ -23,7 +23,6 @@ Route::post('/contact', 'ContactController@sendForm')->name('contact');
 
 // Posts
 Route::get('/post/{id}', 'PostController@show')->name('posts.show');
-Route::post('/post/{id}', 'PostController@comment')->name('posts.comment');
 Route::get('/category/{category_id}', 'PostController@getByCategory')->name('posts.getByCategory');
 
 // Users (guest only)
@@ -39,13 +38,10 @@ Route::group(['middleware'=>'auth'], function() {
     //Logout
     Route::get('logout','Auth\LoginController@logout')->name('logout');
 
-    // Comments (TODO: may be some of these have to be moved to Admin routes)
-    Route::get('/comments', 'CommentController@index')->name('admin.comments');
-    Route::get('/comments/create', 'CommentController@create')->name('admin.comments.create');
-    Route::post('/comments/create', 'CommentController@store')->name('admin.comments.store');
-    Route::get('/comments/edit/{id}', 'CommentController@edit')->name('admin.comments.edit');
-    Route::put('/comments/update/{id}', 'CommentController@update')->name('admin.comments.update');
-    Route::delete('/comments/destroy/{id}', 'CommentController@destroy')->name('admin.comments.destroy');
+    // Comments
+    Route::post('/post/{id}', 'CommentController@post')->name('comments.post');
+    Route::get('/comment/{id}', 'CommentController@edit')->name('comments.edit');
+    Route::post('/comment/{id}', 'CommentController@update')->name('comments.update');
 
     // Admin
     Route::group(['middleware' => 'adminCheck', 'namespace'=>'Admin', 'prefix'=>'admin'], function(){
@@ -69,5 +65,13 @@ Route::group(['middleware'=>'auth'], function() {
         Route::get('posts/{id}/edit', 'PostController@edit')->name('admin.posts.edit');
         Route::put('/posts/update/{id}', 'PostController@update')->name('admin.posts.update');
         Route::delete('/posts/destroy/{id}', 'PostController@destroy')->name('admin.posts.destroy');
+
+        // Comments
+        Route::get('/comments', 'CommentController@index')->name('admin.comments');
+        Route::get('/comments/create', 'CommentController@create')->name('admin.comments.create');
+        Route::post('/comments/create', 'CommentController@store')->name('admin.comments.store');
+        Route::get('/comments/edit/{id}', 'CommentController@edit')->name('admin.comments.edit');
+        Route::put('/comments/update/{id}', 'CommentController@update')->name('admin.comments.update');
+        Route::delete('/comments/destroy/{id}', 'CommentController@destroy')->name('admin.comments.destroy');
     });
 });
