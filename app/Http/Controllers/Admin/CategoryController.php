@@ -51,7 +51,7 @@ class CategoryController extends Controller
          'category_name' => 'required|min:4|max:100',
         ]);
 
-        if (empty($category)){
+        if (empty($id)){
             return redirect()->route('admin.categories');
         }
 
