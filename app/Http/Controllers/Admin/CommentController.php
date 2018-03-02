@@ -41,8 +41,18 @@ class CommentController extends Controller
 
     public function edit($id) {
         $comment = Comment::find($id);
+
+        if (empty($comment)){
+            return redirect()->route('admin.comments');
+        }
+
         $users = User::select('id', 'name')->get();
         $posts = Post::select('id', 'title')->get();
+
+        if (empty($posts)){
+            return redirect()->route('admin.comments');
+        }
+
         return View::make('admin.comments.edit')->with('comment', $comment)->with('users', $users)->with('posts', $posts);
     }
 
@@ -54,6 +64,11 @@ class CommentController extends Controller
         ]);
 
         $comment = Comment::find($id);
+
+        if (empty($comment)){
+            return redirect()->route('admin.comments');
+        }
+
         $comment->post_id = $request->post;
         $comment->user_id = $request->user;
         $comment->content = $request->comment;
@@ -64,6 +79,11 @@ class CommentController extends Controller
 
     public function destroy($id) {
         $comment = Comment::find($id);
+
+        if (empty($comment)){
+            return redirect()->route('admin.comments');
+        }
+
         $comment->delete();
         return redirect()->route('admin.comments')->with('success', 'Comment has been DELETED.');
     }

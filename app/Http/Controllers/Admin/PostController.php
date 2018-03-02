@@ -12,11 +12,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
-{
-    public function __construct() {
-        // TODO: Add middleware to check access
-    }
-    
+{    
     public function index() {
         $posts = Post::all();
         
@@ -52,9 +48,14 @@ class PostController extends Controller
     
     public function edit($id) {
         $post = Post::find($id);
+
+        if (empty($post)){
+            return redirect()->route('admin.posts');
+        }
+
         $users = User::select('id', 'name')->get();
         $categories = Category::select('id', 'category_name')->get();
-        
+
         return View::make('admin.posts.edit')
                 ->with('post', $post)
                 ->with('users', $users)
@@ -69,6 +70,11 @@ class PostController extends Controller
         ]);
 
         $post = Post::find($id);
+
+        if (empty($post)){
+            return redirect()->route('admin.posts');
+        }
+
         $post->category_id = $request->category;
         $post->user_id = Auth::user()->id;
         $post->title = $request->title;
@@ -81,6 +87,11 @@ class PostController extends Controller
 
     public function destroy($id) {
         $post = Post::find($id);
+
+        if (empty($post)){
+            return redirect()->route('admin.posts');
+        }
+
         $post->delete();
         
         return redirect()->route('admin.posts')

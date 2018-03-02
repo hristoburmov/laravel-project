@@ -37,6 +37,10 @@ class CategoryController extends Controller
     
     public function edit($id) {
         $category = Category::find($id);
+
+        if (empty($category)){
+            return redirect()->route('admin.categories');
+        }
         
         return View::make('admin.categories.edit')
                 ->with('category',$category);
@@ -46,7 +50,11 @@ class CategoryController extends Controller
         $this->validate($request, [
          'category_name' => 'required|min:4|max:100',
         ]);
-         
+
+        if (empty($category)){
+            return redirect()->route('admin.categories');
+        }
+
         $category = Category::find($request->id);
         $category->category_name = $request->category_name;
         
@@ -57,6 +65,10 @@ class CategoryController extends Controller
     
     public function destroy($id) {
         $category = Category::find($id);
+
+        if (empty($category)){
+            return redirect()->route('admin.categories');
+        }
         
         $category->delete();
         
